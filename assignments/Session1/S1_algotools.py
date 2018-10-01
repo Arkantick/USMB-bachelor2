@@ -3,6 +3,45 @@
 # @author Alexandre Benoit, LISTIC Lab, IUT Annecy le vieux, FRANCE
 # @brief a set of generic functions for data management
 
+
+#Exercice 1 - 01/10/2018
+def average_above_zero(tab):
+    """
+    brief: computes the average of the positives values 
+    Args:
+        tab: a list of numeric values
+    Return:
+        the compiled average
+    Raises:
+        ValueError if no positive value is found
+        ValueError if input tab is not a list
+    """
+
+    if not(isinstance(tab, list)):
+        raise ValueError('Expected a list as input')
+        
+    average=-99
+    valSum=0.0
+    nPositiveValues=0
+    
+    for val in tab:
+        if val>0:
+            valSum=valSum+float(val)
+            nPositiveValues=nPositiveValues+1
+
+    if nPositiveValues<=0:
+        raise ValueError('no positive value found')
+    average=valSum/nPositiveValues
+    return float(average)
+
+#Test exercice 1
+test_tab=[1,2,3,-5]
+moy=average_above_zero(test_tab)
+print('The average is : ')
+print(moy)
+print('The average is : '+str(moy))
+print('The average of positive values average={v}'.format(v=moy))
+
 """
 # a variable
 a=1 # default type : int
