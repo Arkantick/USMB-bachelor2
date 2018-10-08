@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ##
 #
 # @author Alexandre Benoit, LISTIC Lab, IUT Annecy le vieux, FRANCE
@@ -64,42 +63,6 @@ b=a+2
 mylist_sum=mylist+mylist2
 """
 
-
-"""
-def average_above_zero(input_list):
-    ##
-    # compute the average of positive values
-    # @input_list : the list of values to process
-    # @return the average value of all the positive elements
-
-    #init critical variable
-    positive_values_sum=0
-    positive_values_count=0
-
-    first_item=input_list[0] #just a line to generate a code smell with an unused value
-
-    #compute the average of positive elements of a list
-    for item in input_list:
-        #select only positive items
-        if item>0:
-            positive_values_sum+=item
-            positive_values_count+=1
-        elif item==0:
-            print('This value is null:'+str(item))
-        else:
-            print('This value is negative:'+str(item))
-    #compute the final average
-    average=float(positive_values_sum)/float(positive_values_count)
-    print('Positive elements average is '+str(average))
-    return float(average)
-"""
-"""#testing average_above_zero function:
-mylist=[1,2,3,4,-7]
-result=average_above_zero(mylist)
-message='The average of positive samples of {list_value} is {res}'.format(list_value=mylist,
-                                                                          res=result)
-print(message)
-"""
 
 def max_value(input_list):
     ##
@@ -173,14 +136,10 @@ def average_above_zero(tab):
 
 
 test_tab = [1,7,8,-5 , 5]
-<<<<<<< HEAD
 moy = average_above_zero(test_tab)
-=======
-moy = average_above_zero(testTab)
->>>>>>> 3727b2a18e3e2302f838bca50faf188cddfdbc3c
 print(moy)
 
-def max_value(tabValue)
+def max_value(tabValue):
      """
         Calcule la valeur max du tableau
         Args:
