@@ -4,7 +4,7 @@
 # @brief a set of generic functions for data management
 
 
-#Exercice 1 - 01/10/2018
+#Exercise 1
 def average_above_zero(tab):
     """
     brief: computes the average of the positives values 
@@ -34,14 +34,13 @@ def average_above_zero(tab):
     average=valSum/nPositiveValues
     return float(average)
 
-#Test exercice 1
+#Test exercise 1
 test_tab=[1,2,3,-5]
 moy=average_above_zero(test_tab)
-#print('The average is : '+str(moy))
-print('The average of positive values average={v}'.format(v=moy))
+print('The average of positive values average = {v}'.format(v=moy))
 
 
-#Exercice 2 - 08/10/2018
+#Exercise 2
 def max_value(tab):
     """
     brief: give max number of a list
@@ -71,11 +70,40 @@ def max_value(tab):
             idx=index
             
     return maxVal,idx
-    
+
+#Test exercise 2
 test_tab=[1,2,3,-5]
 maxValue=max_value(test_tab)
-print(maxValue[0])
 print('The maximum value = {v} and his index is = {b}'.format(v=maxValue[0],b=maxValue[1] ))
+
+#Exercise 3
+def reverseTable(tab):
+    """
+    brief: reverse a tab
+    Args:
+        tab: a list of numeric values
+    Return:
+        the reversed tab
+    Raises:
+        ValueError if input tab is not a list
+    """
+
+    if not(isinstance(tab, list)):
+        raise ValueError('Expected a list as input')
+    
+    vlengthTab = len(tab)
+    vList=[]
+    vIndex=vlengthTab-1
+    
+    for i in range(0,vlengthTab):
+        vList.append(tab[vIndex])
+        vIndex = vIndex - 1
+    
+    return vList
+
+#Test exercise 3
+reversedTable=reverseTable(test_tab)
+print('The reversed table is : '+str(reversedTable))
 
 """
 
