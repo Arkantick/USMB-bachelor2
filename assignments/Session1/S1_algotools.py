@@ -1,3 +1,7 @@
+import numpy as np
+
+import random
+
 ##
 #
 # @author Alexandre Benoit, LISTIC Lab, IUT Annecy le vieux, FRANCE
@@ -104,6 +108,26 @@ def reverseTable(tab):
 #Test exercise 3
 reversedTable=reverseTable(test_tab)
 print('The reversed table is : '+str(reversedTable))
+
+## Reverse numbers from a tab
+#  @param tab An empty tab
+#  @param cellNumber Number of cells to be fill
+def array_filling(tab,cellNumber):
+    if cellNumber > tab.size:
+        raise ValueError("cellNumber must be inferior to tab size")
+    line=0
+    column=0
+    count=0    
+    while count < cellNumber:
+        column=random.randrange(0,len(tab[0])-1)
+        line=random.randrange(0,len(tab)-1)
+        if tab[line][column] != "X":
+            tab[line][column] = "X"
+            count=count+1
+    return table
+
+#Test exercise 
+
 
 """
 
