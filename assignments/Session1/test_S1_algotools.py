@@ -22,4 +22,37 @@ class TestAlgoTools(unittest.TestCase):
 
     def test_average_above_zero_with_empty_tab(self):
         with self.assertRaises(ValueError):
-            S1_algotools.average_above_zero([])  
+            S1_algotools.average_above_zero([]) 
+            
+    #Tests Exercise 2
+    def test_max_value_with_non_zeros_values(self):
+        result = S1_algotools.max_value([1,2,3,-5])
+        self.assertEqual(result,(3,2))
+        
+    def test_max_value_with_zeros_values(self):
+        result = S1_algotools.max_value([1,2,3,0,-7])
+        self.assertEqual(result,(3,2))
+
+    def test_max_value_with_negative_values(self):
+        result = S1_algotools.max_value([0,-7])
+        self.assertEqual(result,(0,0))
+
+    def test_max_value_with_only_negative_values(self):
+        result = S1_algotools.max_value([-5,-60,-7])
+        self.assertEqual(result,(-5,0))
+
+    def test_max_value_with_string_values(self):
+        with self.assertRaises(TypeError):
+            S1_algotools.max_value(['ab','c'])  
+
+    def test_max_value_with_empty_tab(self):
+        with self.assertRaises(ValueError):
+            S1_algotools.max_value([])  
+
+    def test_max_value_with_string_param(self):
+        with self.assertRaises(ValueError):
+            S1_algotools.max_value("test string")
+            
+    def test_max_value_with_integer_param(self):
+        with self.assertRaises(ValueError):
+            S1_algotools.max_value(3)  
