@@ -16,13 +16,25 @@ class TestAlgoTools(unittest.TestCase):
         with self.assertRaises(ValueError):
             S1_algotools.average_above_zero([0,-7])  
 
+    def test_average_above_zero_with_only_negative_values(self):
+        with self.assertRaises(ValueError):
+            S1_algotools.average_above_zero([-5,-60,-7]) 
+
     def test_average_above_zero_with_string_values(self):
         with self.assertRaises(TypeError):
-            S1_algotools.average_above_zero(['ab','c'])  
+            S1_algotools.average_above_zero(['ab','c'])
 
     def test_average_above_zero_with_empty_tab(self):
         with self.assertRaises(ValueError):
             S1_algotools.average_above_zero([]) 
+            
+    def test_average_above_zero_with_string_param(self):
+        with self.assertRaises(ValueError):
+            S1_algotools.average_above_zero("test string")
+            
+    def test_average_above_zero_with_integer_param(self):
+        with self.assertRaises(ValueError):
+            S1_algotools.average_above_zero(3)   
             
     #Tests Exercise 2
     def test_max_value_with_non_zeros_values(self):
