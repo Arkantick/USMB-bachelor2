@@ -104,6 +104,28 @@ print('The table is : '+str(test_tab))
 reversedTable=reverseTable(test_tab)
 print('The reversed table is : '+str(reversedTable))
 
+#Bounding box
+import random
+def launch_dice():
+    score = 0
+    while True:
+        diceTry = random.randint(1,6)
+        score+= diceTry
+        print("Dés lancé par l'ordinateur : "+str(diceTry))
+        
+        if diceTry == 1:
+            score = 0
+            break
+        
+        roll = input('Relancé le dé ? o/n')
+        if roll == 'n':
+            break
+        
+    print("Le score obtenue est de : " + str(score))
+    return "a"
+
+launch_dice()
+
 ## Reverse numbers from a tab
 #  @param tab An empty tab
 #  @param cellNumber Number of cells to be fill
