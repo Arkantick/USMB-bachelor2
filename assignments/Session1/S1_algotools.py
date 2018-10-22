@@ -124,26 +124,56 @@ def launch_dice():
     print("Le score obtenue est de : " + str(score))
     return "a"
 
-launch_dice()
+#launch_dice()
 
-## Reverse numbers from a tab
-#  @param tab An empty tab
-#  @param cellNumber Number of cells to be fill
-#def array_filling(tab,cellNumber):
-#    if cellNumber > tab.size:
-#        raise ValueError("cellNumber must be inferior to tab size")
-#    line=0
-#    column=0
-#    count=0    
-#    while count < cellNumber:
-#        column=random.randrange(0,len(tab[0])-1)
-#        line=random.randrange(0,len(tab)-1)
-#        if tab[line][column] != "X":
-#            tab[line][column] = "X"
-#            count=count+1
-#    return table
-#
-#Test exercise 
+#Exercise bounding Box
+def roi_bbox(inputMat):
+
+    if not(isinstance(inputMat, np.ndarray)):
+        raise ValueError('Expected a list as input')
+        
+    if not(inputMat.dtype == np.bool):
+        raise ValueError('Expected input of type numpy.bool')
+        
+    lmin=inputMat.shape[0]
+    lmax=0
+    cmin=inputMat.shape[1]
+    cmax=0   
+    
+    for l in range(inputMat.shape[0]):
+        for c in range(inputMat.shape[1]):
+            if inputMat[l,c]==True:
+                if l<lmin:
+                    lmin=l
+                if l>lmax:
+                    lmax=l
+                if c<cmin:
+                    cmin=c
+                if c>cmax:
+                    cmax=c
+    
+    roi=[
+        [lmin, cmin],
+        [lmin, cmax],
+        [lmax, cmin],
+        [lmax,cmax]
+        ]
+        
+    return np.array(roi)
+    
+
+inputMat=np.zeros((5,6),dtype=np.bool)
+
+inputMat[2,3] = True
+inputMat[2,4] = True
+inputMat[3,3] = True
+inputMat[3,4] = True
+
+inputMat[2:4,3:5]=np.ones((2,2),dtype=np.bool)
+
+print("inputMat : " + str(inputMat))
+roi = roi_bbox(inputMat)
+print('roi : ' + str(roi))
 
 
 """
