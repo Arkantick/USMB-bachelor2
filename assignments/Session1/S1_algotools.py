@@ -75,6 +75,7 @@ maxValue=max_value(test_tab)
 print('The maximum value = {v} and his index is = {b}'.format(v=maxValue[0],b=maxValue[1] ))
 
 #Exercise 3
+import numpy as np
 def reverseTable(tab):
     """
     brief: reverse a tab
@@ -89,17 +90,17 @@ def reverseTable(tab):
     if not(isinstance(tab, list)):
         raise ValueError('Expected a list as input')
     
-    vlengthTab = len(tab)
-    vList=[]
-    vIndex=vlengthTab-1
-    
-    for i in range(0,vlengthTab):
-        vList.append(tab[vIndex])
-        vIndex = vIndex - 1
-    
-    return vList
+    lengthTab = len(tab)
+    loopMaxID = int(np.floor(lengthTab)/2)
+    lengthTab-=1
+    for idx in range(loopMaxID):
+        element = tab[lengthTab - idx]
+        tab[lengthTab-idx]=tab[idx]
+        tab[idx]=element
+    return tab
 
 #Test exercise 3
+print('The table is : '+str(test_tab))
 reversedTable=reverseTable(test_tab)
 print('The reversed table is : '+str(reversedTable))
 
