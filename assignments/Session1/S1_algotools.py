@@ -1,7 +1,3 @@
-#import numpy as np
-
-#import random
-
 #Exercise 1
 def average_above_zero(tab):
     """
@@ -104,29 +100,7 @@ print('The table is : '+str(test_tab))
 reversedTable=reverseTable(test_tab)
 print('The reversed table is : '+str(reversedTable))
 
-#Bounding box
-import random
-def launch_dice():
-    score = 0
-    while True:
-        diceTry = random.randint(1,6)
-        score+= diceTry
-        print("Dés lancé par l'ordinateur : "+str(diceTry))
-        
-        if diceTry == 1:
-            score = 0
-            break
-        
-        roll = input('Relancé le dé ? o/n')
-        if roll == 'n':
-            break
-        
-    print("Le score obtenue est de : " + str(score))
-    return "a"
-
-#launch_dice()
-
-#Exercise bounding Box
+#Exercise 4 bounding Box
 def roi_bbox(inputMat):
 
     if not(isinstance(inputMat, np.ndarray)):
@@ -174,6 +148,44 @@ inputMat[2:4,3:5]=np.ones((2,2),dtype=np.bool)
 print("inputMat : " + str(inputMat))
 roi = roi_bbox(inputMat)
 print('roi : ' + str(roi))
+
+#Exercise 5 random array filling
+
+#Exercise 6 remove whitespace in string
+def remove_whitespaces(p_string):
+    count = 0
+    while count<len(p_string):
+        if(p_string[count] == " "):
+            p_string = p_string[0:count]+p_string[count+1:len(p_string)-1] 
+        count = count + 1
+    return p_string
+print(remove_whitespace("This is my      string test                 1"))
+
+#Exercise 7 Random item selection
+
+#Exercise 8 launch_dice
+import random
+def launch_dice():
+    score = 0
+    while True:
+        diceTry = random.randint(1,6)
+        score+= diceTry
+        print("Dés lancé par l'ordinateur : "+str(diceTry))
+        
+        if diceTry == 1:
+            score = 0
+            break
+        
+        roll = input('Relancé le dé ? o/n')
+        if roll == 'n':
+            break
+        
+    print("Le score obtenue est de : " + str(score))
+    return "a"
+
+#launch_dice()
+
+
 
 
 """
