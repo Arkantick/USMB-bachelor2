@@ -135,7 +135,7 @@ def roi_bbox(inputMat):
         
     return np.array(roi)
     
-
+#Test exercise 4
 inputMat=np.zeros((5,6),dtype=np.bool)
 
 inputMat[2,3] = True
@@ -150,6 +150,29 @@ roi = roi_bbox(inputMat)
 print('roi : ' + str(roi))
 
 #Exercise 5 random array filling
+def random_array_filling(matrix,cellNumberToBeFilled):
+    line = 0
+    count = 0
+    column = 0
+    if cellNumberToBeFilled>matrix.size:
+         raise ValueError('cellNumberToBeFilled is bigger than the matrix size')
+    if matrix.dtype!="<U1":
+         raise ValueError('Wrong array type')
+    while count < cellNumberToBeFilled:
+        column=random.randrange(0,len(matrix[0])-1)
+        line=random.randrange(0,len(matrix)-1)
+        if matrix[line][column]!="." :
+            matrix[line][column]="."
+            count+=1
+            
+    return matrix
+
+#Test exercise 5
+matrix=np.array([["","","","","",""],["","","","","",""]])
+matrix=np.array([[0,0,0,0,0,0],[0,0,0,1,1,0],[0,0,0,0,0,0]])
+testLen = len(matrix)
+randomX=random_array_filling(matrix,4)
+print(randomX)
 
 #Exercise 6 remove whitespace in string
 def remove_whitespaces(p_string):
@@ -159,6 +182,8 @@ def remove_whitespaces(p_string):
             p_string = p_string[0:count]+p_string[count+1:len(p_string)-1] 
         count = count + 1
     return p_string
+
+#Test exercise 6
 print(remove_whitespace("This is my      string test                 1"))
 
 #Exercise 7 Random item selection
