@@ -2,26 +2,26 @@ import random
 import numpy as np
 
 #Exercise 1
-def average_above_zero(tab):
+def average_above_zero(table):
     """
     brief: computes the average of the positives values 
     Args:
-        tab: a list of numeric values
+        table: a list of numeric values
     Return:
         the compiled average
     Raises:
         ValueError if no positive value is found
-        ValueError if input tab is not a list
+        ValueError if input table is not a list
     """
 
-    if not(isinstance(tab, list)):
+    if not(isinstance(table, list)):
         raise ValueError('Expected a list as input')
         
     average=-99
     valSum=0.0
     nPositiveValues=0
     
-    for val in tab:
+    for val in table:
         if val>0:
             valSum=valSum+float(val)
             nPositiveValues=nPositiveValues+1
@@ -38,32 +38,32 @@ print('The average of positive values average = {v}'.format(v=moy))
 
 
 #Exercise 2
-def max_value(tab):
+def max_value(table):
     """
     brief: give max number of a list
     Args:
-        tab: a list of numeric values
+        table: a list of numeric values
     Return:
         the max number
         the index max number
     Raises:
-        ValueError if tab is not a list
-        ValueError if tab is empty
+        ValueError if table is not a list
+        ValueError if table is empty
     """
 
-    if not(isinstance(tab, list)):
+    if not(isinstance(table, list)):
         raise ValueError('Expected a list as input')
         
-    if len(tab)==0:
+    if len(table)==0:
         raise ValueError('provided list is empty')
         
     maxVal=-99
     idx=-11
-    NMAX=len(tab)
+    NMAX=len(table)
     
     for index in range(0,NMAX):
-        if tab[index] > maxVal:
-            maxVal=tab[index]
+        if table[index] > maxVal:
+            maxVal=table[index]
             idx=index
             
     return maxVal,idx
@@ -74,51 +74,51 @@ maxValue=max_value(test_tab)
 print('The maximum value = {v} and his index is = {b}'.format(v=maxValue[0],b=maxValue[1] ))
 
 #Exercise 3
-def reverseTable(tab):
+def reverse_table(table):
     """
     brief: reverse a tab
     Args:
-        tab: a list of numeric values
+        table: a list of numeric values
     Return:
-        the reversed tab
+        the reversed table
     Raises:
-        ValueError if input tab is not a list
+        ValueError if input table is not a list
     """
 
-    if not(isinstance(tab, list)):
+    if not(isinstance(table, list)):
         raise ValueError('Expected a list as input')
     
-    lengthTab = len(tab)
+    lengthTab = len(table)
     loopMaxID = int(np.floor(lengthTab)/2)
     lengthTab-=1
     for idx in range(loopMaxID):
-        element = tab[lengthTab - idx]
-        tab[lengthTab-idx]=tab[idx]
-        tab[idx]=element
-    return tab
+        element = table[lengthTab - idx]
+        table[lengthTab-idx]=table[idx]
+        table[idx]=element
+    return table
 
 #Test exercise 3
 print('The table is : '+str(test_tab))
-reversedTable=reverseTable(test_tab)
+reversedTable=reverse_table(test_tab)
 print('The reversed table is : '+str(reversedTable))
 
 #Exercise 4 bounding Box
-def roi_bbox(inputMat):
+def roi_bbox(input_image):
 
-    if not(isinstance(inputMat, np.ndarray)):
+    if not(isinstance(input_image, np.ndarray)):
         raise ValueError('Expected a list as input')
         
-    if not(inputMat.dtype == np.bool):
+    if not(input_image.dtype == np.bool):
         raise ValueError('Expected input of type numpy.bool')
         
-    lmin=inputMat.shape[0]
+    lmin=input_image.shape[0]
     lmax=0
-    cmin=inputMat.shape[1]
+    cmin=input_image.shape[1]
     cmax=0   
     
-    for l in range(inputMat.shape[0]):
-        for c in range(inputMat.shape[1]):
-            if inputMat[l,c]==True:
+    for l in range(input_image.shape[0]):
+        for c in range(input_image.shape[1]):
+            if input_image[l,c]==True:
                 if l<lmin:
                     lmin=l
                 if l>lmax:
@@ -152,19 +152,19 @@ roi = roi_bbox(inputMat)
 print('roi : ' + str(roi))
 
 #Exercise 5 random array filling
-def random_array_filling(matrix,cellNumberToBeFilled):
+def random_fill_sparse(matrix,cellNumberToBeFilled):
     line = 0
     count = 0
     column = 0
     if cellNumberToBeFilled>matrix.size:
         raise ValueError('cellNumberToBeFilled is bigger than the matrix size')
-    if matrix.dtype!="<U1":
-        raise ValueError('Wrong array type')
+    if not(isinstance(matrix, np.ndarray)):
+        raise ValueError('Expected a array as input')
     while count < cellNumberToBeFilled:
         column=random.randrange(0,len(matrix[0])-1)
         line=random.randrange(0,len(matrix)-1)
-        if matrix[line][column]!="." :
-            matrix[line][column]="."
+        if matrix[line][column]!="1" :
+            matrix[line][column]="1"
             count+=1
             
     return matrix
@@ -173,17 +173,17 @@ def random_array_filling(matrix,cellNumberToBeFilled):
 matrix=np.array([["","","","","",""],["","","","","",""]])
 matrix=np.array([[0,0,0,0,0,0],[0,0,0,1,1,0],[0,0,0,0,0,0]])
 testLen = len(matrix)
-randomX=random_array_filling(matrix,4)
+randomX=random_fill_sparse(matrix,4)
 print(randomX)
 
 #Exercise 6 remove whitespace in string
-def remove_whitespaces(p_string):
+def remove_whitespace(table):
     count = 0
-    while count<len(p_string):
-        if(p_string[count] == " "):
-            p_string = p_string[0:count]+p_string[count+1:len(p_string)-1] 
+    while count<len(table):
+        if(table[count] == " "):
+            table = table[0:count]+table[count+1:len(table)-1] 
         count = count + 1
-    return p_string
+    return table
 
 #Test exercise 6
 print(remove_whitespace("This is my      string test                 1"))
@@ -202,15 +202,15 @@ def shuffle (list_in):
     
     count = 0
     list_to_return = []
-    while len(list)>0:
-        count=random.randint(0,len(list)-1)
-        list_to_return.append(list[count])
-        del list[count]
+    while len(list_in)>0:
+        count=random.randint(0,len(list_in)-1)
+        list_to_return.append(list_in[count])
+        del list_in[count]
     return list_to_return
 
 #Test exercise 7
-list = ["thierry","jean","pierre"]
-print( shuffle(list) )
+listTest = ["thierry","jean","pierre"]
+print( shuffle(listTest) )
 
 #Exercise 8 launch_dice
 def launch_dice():

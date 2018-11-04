@@ -108,6 +108,7 @@ class TestAlgoTools(unittest.TestCase):
             
    #Tests Exercise 4
    
+   
    #Tests Exercise 5
       
    #Tests Exercise 6
