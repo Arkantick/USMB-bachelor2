@@ -1,5 +1,6 @@
 import random
 import numpy as np
+import re
 
 #Exercise 1
 def average_above_zero(table):
@@ -180,11 +181,9 @@ print(randomX)
 
 #Exercise 6 remove whitespace in string
 def remove_whitespace(table):
-    count = 0
-    while count<len(table):
-        if(table[count] == " "):
-            table = table[0:count]+table[count+1:len(table)-1] 
-        count = count + 1
+    if not(isinstance(table, str)):
+        raise ValueError('Expected a string as input')    
+    table = re.sub(r"\s+", "", table)
     return table
 
 #Test exercise 6

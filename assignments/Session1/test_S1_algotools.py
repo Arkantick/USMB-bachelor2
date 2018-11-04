@@ -132,5 +132,21 @@ class TestAlgoTools(unittest.TestCase):
    
    #Tests Exercise 6
    
+    def test_remove_whitespace_with_string_param_with_one_space(self):
+        result = S1_algotools.remove_whitespace("azeaze azeazeazeaze")
+        self.assertEqual(result,"azeazeazeazeazeaze")
+            
+    def test_remove_whitespace_with_string_param_with_two_space(self):
+        result = S1_algotools.remove_whitespace("azeaze aze azeazeaze")
+        self.assertEqual(result,"azeazeazeazeazeaze")    
+            
+    def test_remove_whitespace_with_string_param_with_multiple_collapse_space(self):
+        result = S1_algotools.remove_whitespace("azeaze         azeazeazeaze")
+        self.assertEqual(result,"azeazeazeazeazeaze")        
+            
+    def test_random_fill_sparse_with_integer_param(self):
+        with self.assertRaises(ValueError):
+            S1_algotools.remove_whitespace(2)        
+   
    #Tests Exercise 7
       
