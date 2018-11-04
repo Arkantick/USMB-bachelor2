@@ -201,6 +201,9 @@ def shuffle (list_in):
     if ( type(list_in) is not list ):
         raise TypeError('Paramater have not the wrong type')
     
+    if ( len(list_in) == 0 ):
+        raise ValueError('List is empty')    
+    
     count = 0
     list_to_return = []
     while len(list_in)>0:

@@ -117,7 +117,6 @@ class TestAlgoTools(unittest.TestCase):
             S1_algotools.roi_bbox(3)
    
    #Tests Exercise 5
-   
     def test_random_fill_sparse_with_string_param(self):
         with self.assertRaises(ValueError):
             S1_algotools.random_fill_sparse("string",1)
@@ -131,7 +130,6 @@ class TestAlgoTools(unittest.TestCase):
             S1_algotools.random_fill_sparse(np.array([["","","","","",""],["","","","","",""]]),500)   
    
    #Tests Exercise 6
-   
     def test_remove_whitespace_with_string_param_with_one_space(self):
         result = S1_algotools.remove_whitespace("azeaze azeazeazeaze")
         self.assertEqual(result,"azeazeazeazeazeaze")
@@ -149,4 +147,10 @@ class TestAlgoTools(unittest.TestCase):
             S1_algotools.remove_whitespace(2)        
    
    #Tests Exercise 7
-      
+    def test_shuffle_with_integer_param(self):
+        with self.assertRaises(TypeError):
+            S1_algotools.shuffle(2)
+            
+    def test_shuffle_with_empty_array(self):
+        with self.assertRaises(ValueError):
+            S1_algotools.shuffle([])
