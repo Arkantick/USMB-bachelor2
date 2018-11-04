@@ -157,9 +157,9 @@ def random_array_filling(matrix,cellNumberToBeFilled):
     count = 0
     column = 0
     if cellNumberToBeFilled>matrix.size:
-         raise ValueError('cellNumberToBeFilled is bigger than the matrix size')
+        raise ValueError('cellNumberToBeFilled is bigger than the matrix size')
     if matrix.dtype!="<U1":
-         raise ValueError('Wrong array type')
+        raise ValueError('Wrong array type')
     while count < cellNumberToBeFilled:
         column=random.randrange(0,len(matrix[0])-1)
         line=random.randrange(0,len(matrix)-1)

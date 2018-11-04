@@ -104,4 +104,13 @@ class TestAlgoTools(unittest.TestCase):
             
     def test_reverseTable_with_integer_param(self):
         with self.assertRaises(ValueError):
-            S1_algotools.reverseTable(3)   
+            S1_algotools.reverseTable(3)
+            
+   #Tests Exercise 4
+   
+   #Tests Exercise 5
+      
+   #Tests Exercise 6
+   
+   #Tests Exercise 7
+      
