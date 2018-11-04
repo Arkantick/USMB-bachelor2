@@ -155,22 +155,22 @@ roi = roi_bbox(inputMat)
 print('roi : ' + str(roi))
 
 #Exercise 5 random array filling
-def random_fill_sparse(matrix,cellNumberToBeFilled):
+def random_fill_sparse(table,K):
     line = 0
     count = 0
     column = 0
-    if not(isinstance(matrix, np.ndarray)):
+    if not(isinstance(table, np.ndarray)):
         raise ValueError('Expected a array as input')
-    if cellNumberToBeFilled>matrix.size:
-        raise ValueError('cellNumberToBeFilled is bigger than the matrix size')
-    while count < cellNumberToBeFilled:
-        column=random.randrange(0,len(matrix[0])-1)
-        line=random.randrange(0,len(matrix)-1)
-        if matrix[line][column]!="1" :
-            matrix[line][column]="1"
+    if K>table.size:
+        raise ValueError('K is bigger than the table size')
+    while count < K:
+        column=random.randrange(0,len(table[0])-1)
+        line=random.randrange(0,len(table)-1)
+        if table[line][column]!="1" :
+            table[line][column]="1"
             count+=1
             
-    return matrix
+    return table
 
 #Test exercise 5
 matrix=np.array([["","","","","",""],["","","","","",""]])
