@@ -1,3 +1,6 @@
+import random
+import numpy as np
+
 #Exercise 1
 def average_above_zero(tab):
     """
@@ -71,7 +74,6 @@ maxValue=max_value(test_tab)
 print('The maximum value = {v} and his index is = {b}'.format(v=maxValue[0],b=maxValue[1] ))
 
 #Exercise 3
-import numpy as np
 def reverseTable(tab):
     """
     brief: reverse a tab
@@ -187,9 +189,30 @@ def remove_whitespaces(p_string):
 print(remove_whitespace("This is my      string test                 1"))
 
 #Exercise 7 Random item selection
+def shuffle (list_in):
+    """
+      Function that mixed a list
+      @type list_in: list
+      @param list_in: List where to select the element
+      @rtype: list
+      @return: Return a new list mixed
+    """
+    if ( type(list_in) is not list ):
+        raise TypeError('Paramater have not the wrong type')
+    
+    count = 0
+    list_to_return = []
+    while len(list)>0:
+        count=random.randint(0,len(list)-1)
+        list_to_return.append(list[count])
+        del list[count]
+    return list_to_return
+
+#Test exercise 7
+list = ["thierry","jean","pierre"]
+print( shuffle(list) )
 
 #Exercise 8 launch_dice
-import random
 def launch_dice():
     score = 0
     while True:
