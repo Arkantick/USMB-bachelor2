@@ -1,5 +1,6 @@
 import unittest
 import S1_algotools
+import numpy as np
 
 class TestAlgoTools(unittest.TestCase):
     
@@ -70,47 +71,54 @@ class TestAlgoTools(unittest.TestCase):
             S1_algotools.max_value(3)
             
    #Tests Exercise 3
-    def test_reverseTable_with_non_zeros_values(self):
-        result = S1_algotools.reverseTable([1,2,3,-5])
+    def test_reverse_table_with_non_zeros_values(self):
+        result = S1_algotools.reverse_table([1,2,3,-5])
         self.assertEqual(result,[-5, 3, 2, 1])
         
-    def test_reverseTable_with_zeros_values(self):
-        result = S1_algotools.reverseTable([1,2,3,-5,0])
+    def test_reverse_table_with_zeros_values(self):
+        result = S1_algotools.reverse_table([1,2,3,-5,0])
         self.assertEqual(result,[0,-5, 3, 2, 1])
 
-    def test_reverseTable_with_negative_values(self):
-        result = S1_algotools.reverseTable([0,-7])
+    def test_reverse_table_with_negative_values(self):
+        result = S1_algotools.reverse_table([0,-7])
         self.assertEqual(result,[-7,0])
 
-    def test_reverseTable_with_only_negative_values(self):
-        result = S1_algotools.reverseTable([-5,-60,-7])
+    def test_reverse_table_with_only_negative_values(self):
+        result = S1_algotools.reverse_table([-5,-60,-7])
         self.assertEqual(result,[-7, -60, -5])
 
-    def test_reverseTable_with_string_values(self):
-        result = S1_algotools.reverseTable(['a','dsfdfs','po',4])
+    def test_reverse_table_with_string_values(self):
+        result = S1_algotools.reverse_table(['a','dsfdfs','po',4])
         self.assertEqual(result,[4,'po', 'dsfdfs', 'a'])
 
-    def test_reverseTable_with_only_string_values(self):
-        result = S1_algotools.reverseTable(['a','dsfdfs','po'])
+    def test_reverse_table_with_only_string_values(self):
+        result = S1_algotools.reverse_table(['a','dsfdfs','po'])
         self.assertEqual(result,['po', 'dsfdfs', 'a'])
 
-    def test_reverseTable_with_empty_tab(self):
-        result = S1_algotools.reverseTable([])
+    def test_reverse_table_with_empty_tab(self):
+        result = S1_algotools.reverse_table([])
         self.assertEqual(result,[])
 
-    def test_reverseTable_with_string_param(self):
+    def test_reverse_table_with_string_param(self):
         with self.assertRaises(ValueError):
-            S1_algotools.reverseTable("test string")
+            S1_algotools.reverse_table("test string")
             
-    def test_reverseTable_with_integer_param(self):
+    def test_reverse_table_with_integer_param(self):
         with self.assertRaises(ValueError):
-            S1_algotools.reverseTable(3)
+            S1_algotools.reverse_table(3)
             
    #Tests Exercise 4
-   
+    def test_roi_bbox_with_string_param(self):
+        with self.assertRaises(ValueError):
+            S1_algotools.roi_bbox("test string")
+            
+    def test_roi_bbox_with_integer_param(self):
+        with self.assertRaises(ValueError):
+            S1_algotools.roi_bbox(3)
    
    #Tests Exercise 5
-      
+   
+   
    #Tests Exercise 6
    
    #Tests Exercise 7

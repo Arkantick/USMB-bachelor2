@@ -104,13 +104,16 @@ print('The reversed table is : '+str(reversedTable))
 
 #Exercise 4 bounding Box
 def roi_bbox(input_image):
-
+        
     if not(isinstance(input_image, np.ndarray)):
         raise ValueError('Expected a list as input')
         
     if not(input_image.dtype == np.bool):
         raise ValueError('Expected input of type numpy.bool')
-        
+    
+    if len(input_image)==0:
+        raise ValueError('provided list is empty')    
+    
     lmin=input_image.shape[0]
     lmax=0
     cmin=input_image.shape[1]
@@ -156,10 +159,10 @@ def random_fill_sparse(matrix,cellNumberToBeFilled):
     line = 0
     count = 0
     column = 0
-    if cellNumberToBeFilled>matrix.size:
-        raise ValueError('cellNumberToBeFilled is bigger than the matrix size')
     if not(isinstance(matrix, np.ndarray)):
         raise ValueError('Expected a array as input')
+    if cellNumberToBeFilled>matrix.size:
+        raise ValueError('cellNumberToBeFilled is bigger than the matrix size')
     while count < cellNumberToBeFilled:
         column=random.randrange(0,len(matrix[0])-1)
         line=random.randrange(0,len(matrix)-1)
@@ -172,7 +175,6 @@ def random_fill_sparse(matrix,cellNumberToBeFilled):
 #Test exercise 5
 matrix=np.array([["","","","","",""],["","","","","",""]])
 matrix=np.array([[0,0,0,0,0,0],[0,0,0,1,1,0],[0,0,0,0,0,0]])
-testLen = len(matrix)
 randomX=random_fill_sparse(matrix,4)
 print(randomX)
 
