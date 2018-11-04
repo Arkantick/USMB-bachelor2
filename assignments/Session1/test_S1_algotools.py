@@ -118,6 +118,17 @@ class TestAlgoTools(unittest.TestCase):
    
    #Tests Exercise 5
    
+    def test_random_fill_sparse_with_string_param(self):
+        with self.assertRaises(ValueError):
+            S1_algotools.random_fill_sparse("string",1)
+            
+    def test_random_fill_sparse_with_integer_param(self):
+        with self.assertRaises(ValueError):
+            S1_algotools.random_fill_sparse(2,1)        
+            
+    def test_random_fill_sparse_with_second_param_bigger_than_array_size(self):
+        with self.assertRaises(ValueError):
+            S1_algotools.random_fill_sparse(np.array([["","","","","",""],["","","","","",""]]),500)   
    
    #Tests Exercise 6
    
